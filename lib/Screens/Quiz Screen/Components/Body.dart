@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/Controller/Questioncontrolller.dart';
 import 'package:quiz_app/Screens/Quiz%20Screen/Components/Progressbar.dart';
+
+import 'Questioncard.dart';
 
 class Bodys extends StatelessWidget {
   const Bodys({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
+    QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
         SvgPicture.asset(
@@ -69,6 +72,6 @@ class Bodys extends StatelessWidget {
             ),
         ),
       ],
-    ),
+    );
   }
 }
