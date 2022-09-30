@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import 'WelcomeScreen.dart';
@@ -20,26 +21,24 @@ class Splashscreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            //constraints: const BoxConstraints.expand(),
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/bg.jpg"), fit: BoxFit.fill)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'QuiZee',
-                  style: TextStyle(
-                    fontFamily: 'Cormorant Garamond',
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-          )
+          SvgPicture.asset(
+              "assets/bg.svg",
+              fit: BoxFit.fill
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'QuiZee',
+                style: TextStyle(
+                  fontFamily: 'Cormorant Garamond',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

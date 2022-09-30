@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:quiz_app/Screens/QuizScreen.dart';
+import 'package:quiz_app/Screens/Quiz%20Screen/QuizScreen.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -10,12 +11,9 @@ class Welcome extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-      //constraints: const BoxConstraints.expand(),
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-          image: AssetImage("assets/bg.jpg"),
-        fit: BoxFit.fill)),
+          SvgPicture.asset(
+              "assets/bg.svg",
+              fit: BoxFit.fill
           ),
           SafeArea(
             child: Padding(
