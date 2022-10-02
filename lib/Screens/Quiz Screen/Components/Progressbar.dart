@@ -12,7 +12,10 @@ class ProgressBar extends StatelessWidget {
       width: double.infinity,
       height: 35,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF3F4768), width: 3),
+        border: Border.all(
+          color: const Color(0xFF3F4768),
+          width: 3,
+        ),
         borderRadius: BorderRadius.circular(50),
       ),
       child: GetBuilder<QuestionController>(
@@ -25,7 +28,7 @@ class ProgressBar extends StatelessWidget {
             width: constraints.maxWidth * controller.animation.value,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [Color(0xFF46A0AE), Color(0xFF00FFCB)],
+                colors: [Colors.deepOrange, Colors.amberAccent],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
@@ -43,6 +46,9 @@ class ProgressBar extends StatelessWidget {
                       children: [
                         Text(
                             "${(controller.animation.value * 60).round()} sec",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         SvgPicture.asset("assets/clock.svg"),
                       ],

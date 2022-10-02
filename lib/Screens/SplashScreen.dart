@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'WelcomeScreen.dart';
 
 class Splashscreen extends StatelessWidget {
@@ -18,28 +17,32 @@ class Splashscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          SvgPicture.asset(
-              "assets/bg.svg",
-              fit: BoxFit.fill
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.amber, Colors.deepOrange])),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Align(
+              alignment: Alignment.center,
+              child: Text(
                 'QuiZee',
                 style: TextStyle(
-                  fontFamily: 'Cormorant Garamond',
+                  fontSize:40,
                   fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
                   color: Colors.white,
                 ),
-              )
-            ],
-          ),
-        ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

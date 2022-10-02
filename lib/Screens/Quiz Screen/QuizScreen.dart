@@ -9,16 +9,35 @@ class Quiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.amber, Colors.deepOrange])),
+      child: Scaffold(
         backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          TextButton(onPressed: _controller.nextQuestion, child: const Text("Skip")),
-        ],
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            TextButton(
+                onPressed: _controller.nextQuestion,
+                child: const Text(
+                    "Skip",
+                )),
+          ],
+        ),
+        body: const Bodys(),
       ),
-      body: Bodys(),
     );
   }
 }
