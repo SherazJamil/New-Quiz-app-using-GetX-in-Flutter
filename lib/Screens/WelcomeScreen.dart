@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/Screens/Quiz%20Screen/QuizScreen.dart';
 
+import '../Controller/Constant.dart';
+
 class Welcome extends StatelessWidget {
-  const Welcome({Key? key}) : super(key: key);
+   Welcome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final TextEditingController nameController = TextEditingController();
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -47,8 +51,9 @@ class Welcome extends StatelessWidget {
                 const Spacer(
                   flex: 1,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                TextField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.orange,
                     hintText: "Enter your Full Name",
@@ -64,7 +69,10 @@ class Welcome extends StatelessWidget {
                   flex: 1,
                 ),
                 InkWell(
-                  onTap: () => Get.to(const Quiz()),
+                  onTap: () {
+                    box.write('key', nameController.text);
+                    Get.to(const Quiz());
+                  } ,
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,

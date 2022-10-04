@@ -25,7 +25,7 @@ class QuestionController extends GetxController
   bool _isAnswered = false;
   bool get isAnswered => _isAnswered;
 
-  late int _correctAnswer;
+   late int _correctAnswer;
   int get correctAnswer => _correctAnswer;
 
   late int _selectedAnswer;

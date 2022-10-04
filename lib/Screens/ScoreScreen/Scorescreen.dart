@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/Controller/Constant.dart';
 import 'package:quiz_app/Controller/Questioncontrolller.dart';
 import 'package:quiz_app/Screens/WelcomeScreen.dart';
 
@@ -26,6 +27,20 @@ class ScoreScreen extends StatelessWidget {
                 const Spacer(
                   flex: 3,
                 ),
+                 Align(
+                  alignment: Alignment.center,
+                  child: Text(box.read('key'),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontStyle: FontStyle.italic
+                    ),
+                  ),
+                ),
+                const Spacer(
+                  flex: 3,
+                ),
                 const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -42,7 +57,7 @@ class ScoreScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                      "${_qnController.correctAnswer * 10}/${_qnController.questions.length * 10}",
+                      "${_qnController.numOfCorrectAnswers * 10}/${_qnController.questions.length * 10}",
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -55,7 +70,7 @@ class ScoreScreen extends StatelessWidget {
                   flex: 3,
                 ),
                 InkWell(
-                  onTap: () => Get..offAll(const Welcome()),
+                  onTap: () => Get..offAll(Welcome()),
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,

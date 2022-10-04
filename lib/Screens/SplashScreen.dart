@@ -10,7 +10,7 @@ class Splashscreen extends StatelessWidget {
   final timer = Timer(
     const Duration(seconds: 4),
     () {
-      Get.to(const Welcome());
+      Get.to(Welcome());
       // Navigate to your favorite place
     },
   );
